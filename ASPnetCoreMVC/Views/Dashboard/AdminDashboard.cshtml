@@ -1,0 +1,44 @@
+﻿<!-- Views/Dashboard/AdminDashboard.cshtml -->
+@{
+    ViewData["Title"] = "Панель управления администратора";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+    <p class="text-center mb-5">Добро пожаловать в панель администратора! Управляйте пользователями и настройками системы.</p>
+
+    <!-- Контейнер с карточками -->
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <h5 class="card-title text-center">Управление пользователями</h5>
+            <div class="card shadow-sm p-4 mb-4">
+                <a href="@Url.Action("Index", "User")" class="btn btn-primary w-100 custom-button">Перейти к пользователям</a>
+            </div>
+        </div>
+        <!--
+        <div class="col-md-4">
+            <h5 class="card-title text-center">Управление специалистами</h5>
+            <div class="card shadow-sm p-4 mb-4">
+                <a href="@Url.Action("Index", "Specialist")" class="btn btn-primary w-100 custom-button">Перейти к специалистам</a>
+            </div>
+        </div>
+        </div> -->
+</div>
+
+<style>
+    .custom-button {
+        background-color: #687ea2;
+        border: none;
+        transition: background-color 0.3s, transform 0.3s ease-in-out;
+    }
+
+        .custom-button:hover {
+            background-color: #55688d;
+            transform: scale(1.05);
+        }
+
+        .custom-button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(104, 126, 162, 0.5);
+        }
+</style>

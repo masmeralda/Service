@@ -1,0 +1,51 @@
+﻿@model ASPnetCoreMVC.Models.ClientViewModel
+
+<h2 class="text-center my-4">Введите данные для нового клиента</h2>
+
+<!-- Обернем форму в container-sm для ограничения ширины -->
+<form asp-action="Create" method="post" class="p-4 rounded shadow-lg bg-light container-sm">
+    <div class="form-group mb-3">
+        <label asp-for="LastNameClient" class="form-label">Фамилия</label>
+        <input asp-for="LastNameClient" class="form-control" placeholder="Введите фамилию" />
+        <span asp-validation-for="LastNameClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="FirstNameClient" class="form-label">Имя</label>
+        <input asp-for="FirstNameClient" class="form-control" placeholder="Введите имя" />
+        <span asp-validation-for="FirstNameClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="PatronymicClient" class="form-label">Отчество</label>
+        <input asp-for="PatronymicClient" class="form-control" placeholder="Введите отчество" />
+        <span asp-validation-for="PatronymicClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="PhoneClient" class="form-label">Телефон</label>
+        <input asp-for="PhoneClient" class="form-control" placeholder="Введите телефон" />
+        <span asp-validation-for="PhoneClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="EmailClient" class="form-label">Электронная почта</label>
+        <input asp-for="EmailClient" class="form-control" placeholder="Введите электронную почту" />
+        <span asp-validation-for="EmailClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="StreetClient" class="form-label">Улица</label>
+        <input asp-for="StreetClient" class="form-control" placeholder="Введите улицу" />
+        <span asp-validation-for="StreetClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="HouseClient" class="form-label">Дом</label>
+        <input asp-for="HouseClient" class="form-control" placeholder="Введите номер дома" />
+        <span asp-validation-for="HouseClient" class="text-danger"></span>
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="ApartmentNumberClient" class="form-label">Квартира</label>
+        <input asp-for="ApartmentNumberClient" class="form-control" placeholder="Введите номер квартиры" />
+        <span asp-validation-for="ApartmentNumberClient" class="text-danger"></span>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">Сохранить</button>
+        <a href="@Url.Action("Index", "Client")" class="btn btn-outline-secondary">Отмена</a>
+    </div>
+</form>

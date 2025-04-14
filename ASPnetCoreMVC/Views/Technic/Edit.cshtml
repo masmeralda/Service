@@ -1,0 +1,152 @@
+﻿@model ASPnetCoreMVC.Models.TechnicViewModel
+
+@{
+    ViewData["Title"] = "Редактирование устройства";
+}
+
+<h2 class="text-center my-4">@ViewData["Title"]</h2>
+
+<!-- Обернем форму в container-sm для ограничения ширины и добавим тень -->
+<form asp-action="Edit" method="post" class="p-4 rounded shadow-lg bg-white container-lg" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.IdTechnic)
+
+    <!-- Описание техники -->
+    <div class="form-group mb-4">
+        @Html.LabelFor(model => model.DescriptionTechnic, htmlAttributes: new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.DescriptionTechnic, new { @class = "form-control shadow-sm", placeholder = "Введите описание" })
+        @Html.ValidationMessageFor(model => model.DescriptionTechnic, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Тип техники -->
+    <div class="form-group mb-4">
+        @Html.LabelFor(model => model.IdModelTechnic, htmlAttributes: new { @class = "form-label" })
+        @Html.DropDownList("TypeTechnic", new SelectList(ViewBag.Types, "IdTypeTechnic", "NameTypeTechnic", Model.IdModelTechnic), "Выберите тип", new { @class = "form-select shadow-sm" })
+    </div>
+
+    <!-- Модель техники -->
+    <div class="form-group mb-4">
+        @Html.LabelFor(model => model.IdModelTechnic, htmlAttributes: new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.IdModelTechnic, new SelectList(ViewBag.Models, "IdModelTechnic", "NameModelTechnic", Model.IdModelTechnic), "Выберите модель", new { @class = "form-select shadow-sm" })
+        @Html.ValidationMessageFor(model => model.IdModelTechnic, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Текущее фото -->
+    @if (!string.IsNullOrEmpty(Model.PhotoTechnic))
+    {
+        <div class="form-group mb-4">
+            <label class="form-label">Текущее фото устройства:</label>
+            <div class="current-photo-container">
+                <img src="data:image/jpeg;base64,@Model.PhotoTechnic" alt="Текущая фотография устройства" class="current-photo" />
+            </div>
+        </div>
+    }
+
+    <!-- Загрузка нового фото -->
+    <div class="form-group mb-4">
+        <label for="photo" class="form-label">Загрузить новое фото</label>
+        <input type="file" id="photo" name="photo" class="form-control shadow-sm" accept="image/*" />
+        <small class="form-text text-muted">Поддерживаемые форматы: JPG, PNG. Максимальный размер: 5 МБ.</small>
+    </div>
+
+    <div class="d-flex justify-content-between mt-4">
+        <button type="submit" class="btn btn-primary shadow-sm">Сохранить изменения</button>
+        <a href="@Url.Action("Index", "Technic")" class="btn btn-outline-secondary shadow-sm">Отмена</a>
+    </div>
+</form>
+
+<!-- Кнопка "Назад" -->
+<div class="mt-4">
+    <button onclick="window.history.back();" class="btn btn-secondary shadow-sm">Назад</button>
+</div>
+
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Обработчик изменения типа техники
+            $('#TypeTechnic').change(function () {
+                var typeId = $(this).val();
+
+                if (typeId) {
+                    $.ajax({
+                        url: '@Url.Action("GetModelsByType", "Technic")',
+                        data: { idTypeTechnic: typeId },
+                        success: function (models) {
+                            var modelDropdown = $('#ModelTechnic');
+                            modelDropdown.empty(); // Очистить старые варианты
+
+                            // Добавить новый вариант по умолчанию
+                            modelDropdown.append('<option value="">Выберите модель</option>');
+
+                            // Добавить новые модели в список
+                            $.each(models, function (index, model) {
+                                modelDropdown.append('<option value="' + model.idModelTechnic + '">' + model.nameModelTechnic + '</option>');
+                            });
+                        },
+                        error: function () {
+                            alert('Ошибка при загрузке моделей');
+                        }
+                    });
+                } else {
+                    $('#ModelTechnic').empty(); // Очистить модели, если тип не выбран
+                    $('#ModelTechnic').append('<option value="">Выберите модель</option>');
+                }
+            });
+        });
+    </script>
+}
+
+<style>
+    /* Стиль контейнера для фотографии */
+    .current-photo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        background-color: #f9f9f9;
+        padding: 10px;
+    }
+
+    /* Стиль для фотографии */
+    .current-photo {
+        max-width: 100%;
+        max-height: 300px;
+        border-radius: 8px;
+        object-fit: contain;
+    }
+
+    /* Улучшение внешнего вида кнопок */
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+    .btn-outline-secondary {
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #f8f9fa;
+        }
+
+    .btn-secondary {
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+    /* Усовершенствование теней для элементов */
+    .shadow-sm {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+</style>

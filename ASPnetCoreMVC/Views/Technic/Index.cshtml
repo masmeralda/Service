@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ASPnetCoreMVC.Models.TechnicViewModel>
+
+@{
+    ViewData["Title"] = "Список устройств";
+}
+
+<style>
+    /* Анимация при наведении на карточку */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Убираем анимацию для изображения */
+        .card img {
+            transition: none;
+        }
+</style>
+
+<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+<!-- Кнопки переходов -->
+<div class="d-flex justify-content-start mb-4">
+    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-outline-danger btn-sm me-2">Вернуться в панель управления</a>
+    <a href="@Url.Action("Create", "Technic")" class="btn btn-outline-danger btn-sm">Добавить новое устройство</a>
+</div>
+
+<!-- Ряд карточек для отображения техники -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var technic in Model)
+    {
+        <div class="col">
+            <!-- Оборачиваем всю карточку в ссылку, которая ведет на редактирование -->
+            <a href="@Url.Action("Edit", "Technic", new { id = technic.IdTechnic })" class="card shadow-sm text-decoration-none">
+                <img class="card-img-top" src="data:image/png;base64,@technic.PhotoTechnic" alt="Technic Photo" style="height: 200px; object-fit: cover;" />
+                <div class="card-body">
+                    <h5 class="card-title">@technic.DescriptionTechnic</h5>
+                    <p class="card-text">Модель: @technic.ModelTechnic?.NameModelTechnic</p>
+                    <div class="d-flex justify-content-between">
+                        <!-- Кнопка удаления -->
+                        <form action="@Url.Action("Delete", "Technic", new { id = technic.IdTechnic })" method="post" onsubmit="return confirm('Are you sure you want to delete this technic?');">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="_method" value="DELETE" />
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                        </form>
+                    </div>
+                </div>
+            </a>
+        </div>
+    }
+</div>

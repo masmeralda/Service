@@ -1,0 +1,38 @@
+﻿@model ASPnetCoreMVC.Models.TechnicViewModel
+
+@{
+    ViewData["Title"] = "Delete Technic";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Вы действительно хотите удалить эту технику?</h3>
+
+<div>
+    <h4>Technic ID: @Model.IdTechnic</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Описание</dt>
+        <dd class="col-sm-10">@Model.DescriptionTechnic</dd>
+
+        <dt class="col-sm-2">Модель</dt>
+        <dd class="col-sm-10">@Model.ModelTechnic?.NameModelTechnic</dd>
+
+        <dt class="col-sm-2">Фото</dt>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.PhotoTechnic))
+            {
+                <img src="data:image/png;base64,@Model.PhotoTechnic" alt="Technic Photo" width="200" height="200" />
+            }
+            else
+            {
+                <span>Нет фото</span>
+            }
+        </dd>
+    </dl>
+</div>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    <a href="@Url.Action("Index", "Technic")" class="btn btn-secondary">Отмена</a>
+</form>

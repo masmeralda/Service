@@ -1,0 +1,77 @@
+﻿@model ASPnetCoreMVC.Models.TechnicViewModel
+
+@{
+    ViewData["Title"] = "Create Technic";
+}
+
+<h2 class="text-center my-4">Добавление нового устройства</h2>
+
+@using (Html.BeginForm("Create", "Technic", FormMethod.Post, new { enctype = "multipart/form-data", @class = "p-4 rounded shadow-lg bg-light" }))
+{
+    @Html.AntiForgeryToken()
+
+    <!-- Поле для описания техники -->
+    <div class="form-group mb-3">
+        <label for="DescriptionTechnic" class="form-label">Описание устройства</label>
+        @Html.TextBoxFor(model => model.DescriptionTechnic, new { @class = "form-control", id = "DescriptionTechnic", placeholder = "Введите описание" })
+        @Html.ValidationMessageFor(model => model.DescriptionTechnic, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Поле для выбора типа техники -->
+    <div class="form-group mb-3">
+        <label for="TypeTechnic" class="form-label">Тип устройства</label>
+        @Html.DropDownList("TypeTechnic", new SelectList(ViewBag.Types, "IdTypeTechnic", "NameTypeTechnic"), "Выберите тип устройства", new { @class = "form-control", id = "TypeTechnic" })
+    </div>
+
+    <!-- Поле для выбора модели техники -->
+    <div class="form-group mb-3">
+        <label for="ModelTechnic" class="form-label">Модель устройства</label>
+        @Html.DropDownListFor(model => model.IdModelTechnic, Enumerable.Empty<SelectListItem>(), "Выберите модель", new { @class = "form-control", id = "ModelTechnic" })
+        @Html.ValidationMessageFor(model => model.IdModelTechnic, "", new { @class = "text-danger" })
+    </div>
+
+    <!-- Поле для загрузки фото -->
+    <div class="form-group mb-3">
+        <label for="photo" class="form-label">Загрузить фото</label>
+        <input type="file" id="photo" name="photo" class="form-control" />
+    </div>
+
+    <!-- Кнопки отправки и возврата -->
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">Создать</button>
+        <a href="@Url.Action("Index", "Technic")" class="btn btn-outline-secondary">Назад к списку</a>
+    </div>
+}
+
+@section Scripts {
+    @Html.Partial("_ValidationScriptsPartial")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#TypeTechnic').change(function () {
+                var typeId = $(this).val();
+
+                if (typeId) {
+                    $.ajax({
+                        url: '@Url.Action("GetModelsByType", "Technic")',
+                        data: { idTypeTechnic: typeId },
+                        success: function (models) {
+                            var modelDropdown = $('#ModelTechnic');
+                            modelDropdown.empty();
+                            modelDropdown.append('<option value="">Выберите модель</option>');
+
+                            $.each(models, function (index, model) {
+                                modelDropdown.append('<option value="' + model.idModelTechnic + '">' + model.nameModelTechnic + '</option>');
+                            });
+                        },
+                        error: function () {
+                            alert('Ошибка при загрузке моделей');
+                        }
+                    });
+                } else {
+                    $('#ModelTechnic').empty().append('<option value="">Выберите модель</option>');
+                }
+            });
+        });
+    </script>
+}

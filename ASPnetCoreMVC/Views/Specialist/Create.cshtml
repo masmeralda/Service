@@ -1,0 +1,55 @@
+﻿@model ASPnetCoreMVC.Models.SpecialistViewModel
+
+@{
+    ViewData["Title"] = "Добавление нового специалиста";
+}
+
+<h2 class="text-center my-4">@ViewData["Title"]</h2>
+
+<!-- Обернем форму в container-sm для ограничения ширины -->
+<form asp-action="Create" method="post" class="p-4 rounded shadow-lg bg-light container-sm">
+    <div class="form-group mb-3">
+        <label asp-for="LastNameSpecialist" class="form-label">Фамилия</label>
+        <input asp-for="LastNameSpecialist" class="form-control" />
+        <span asp-validation-for="LastNameSpecialist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="FirstNameSpecialist" class="form-label">Имя</label>
+        <input asp-for="FirstNameSpecialist" class="form-control" />
+        <span asp-validation-for="FirstNameSpecialist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="PatronymicSpecialist" class="form-label">Отчество</label>
+        <input asp-for="PatronymicSpecialist" class="form-control" />
+        <span asp-validation-for="PatronymicSpecialist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="PhoneNumberSpecialist" class="form-label">Телефон</label>
+        <input asp-for="PhoneNumberSpecialist" class="form-control" />
+        <span asp-validation-for="PhoneNumberSpecialist" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="NamePosition" class="form-label">Должность</label>
+        <select asp-for="NamePosition.IdPosition" class="form-control" asp-items="@(ViewData["Positions"] as SelectList)">
+            <option value="">Выберите должность</option>
+        </select>
+        <span asp-validation-for="NamePosition.IdPosition" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="LoginUser" class="form-label">Пользователь</label>
+        <select asp-for="LoginUser.IdUser" class="form-control" asp-items="@(ViewData["Users"] as SelectList)">
+            <option value="">Выберите пользователя</option>
+        </select>
+        <span asp-validation-for="LoginUser.IdUser" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">Создать специалиста</button>
+        <a href="@Url.Action("Index", "Specialist")" class="btn btn-outline-secondary">Отмена</a>
+    </div>
+</form>

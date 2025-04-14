@@ -1,0 +1,26 @@
+﻿@model ASPnetCoreMVC.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Delete Order";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Order ID: @Model.IdOrder</h4>
+    <dl class="row">
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.StatusOrder</dd>
+        <dt class="col-sm-2">Creation Date</dt>
+        <dd class="col-sm-10">@Model.CreationDateOrder?.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-2">Completion Date</dt>
+        <dd class="col-sm-10">@Model.CompletionDateOrder?.ToString("dd/MM/yyyy")</dd>
+        <dt class="col-sm-2">Comment</dt>
+        <dd class="col-sm-10">@Model.CommentOrder</dd>
+    </dl>
+</div>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index", "Order")" class="btn btn-secondary">Cancel</a>
+</form>

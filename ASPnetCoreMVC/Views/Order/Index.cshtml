@@ -1,0 +1,140 @@
+﻿@model IEnumerable<ASPnetCoreMVC.Models.OrderViewModel>
+
+@{
+    ViewData["Title"] = "Список заказов";
+}
+
+<h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+<style>
+    /* Анимация при наведении на карточку */
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-body {
+        padding: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-text {
+        font-size: 0.875rem;
+        margin-bottom: 0.75rem; /* Увеличены отступы */
+    }
+
+    .card-subtitle {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #6c757d;
+        margin-bottom: 0.5rem; /* Добавлен отступ */
+    }
+
+    .card-img-top {
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+
+    .card-footer {
+        padding: 0.75rem;
+        text-align: right;
+        background-color: #f8f9fa;
+    }
+
+    /* Добавляем отступы для блока с информацией */
+    .card-body p {
+        margin-bottom: 1rem;
+    }
+
+    /* Дополнительные отступы для разделов */
+    .card-body h6 {
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Стиль для разных статусов заказов */
+    .status-completed {
+        background-color: #d4edda; /* Пастельный зелёный */
+        border: 1px solid #c3e6cb;
+    }
+
+    .status-canceled {
+        background-color: #f8d7da; /* Пастельный красный */
+        border: 1px solid #f5c6cb;
+    }
+</style>
+
+<!-- Кнопки переходов -->
+<div class="d-flex justify-content-start mb-4">
+    <a href="@Url.Action("Index", "Dashboard")" class="btn btn-outline-danger btn-sm me-2">Вернуться в панель управления</a>
+    <a href="@Url.Action("Create", "Order")" class="btn btn-outline-danger btn-sm">Создать новый заказ</a>
+</div>
+
+<!-- Ряд карточек для отображения заказов -->
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    @foreach (var order in Model)
+    {
+        <div class="col">
+            <div class="card shadow-sm h-100 @(order.StatusOrder == "Завершен" ? "status-completed" : (order.StatusOrder == "Отменен" ? "status-canceled" : ""))">
+                <div class="card-body">
+                    <h5 class="card-title">Заказ №@order.IdOrder</h5>
+                    <p class="card-text"><strong>Статус:</strong> @order.StatusOrder</p>
+                    <p class="card-text"><strong>Дата создания:</strong> @order.CreationDateOrder?.ToString("dd/MM/yyyy")</p>
+                    <p class="card-text"><strong>Дата завершения:</strong> @order.CompletionDateOrder?.ToString("dd/MM/yyyy")</p>
+                    <p class="card-text"><strong>Комментарий:</strong> @order.CommentOrder</p>
+
+                    <h6 class="card-subtitle mb-2">Техника</h6>
+                    <p>@order.Technic.DescriptionTechnic</p>
+                    @if (!string.IsNullOrEmpty(order.Technic.PhotoTechnic))
+                    {
+                        <img src="data:image/png;base64,@order.Technic.PhotoTechnic" alt="Фото техники" class="card-img-top" />
+                    }
+                    else
+                    {
+                        <p>Фото отсутствует</p>
+                    }
+
+                    <h6 class="card-subtitle mb-2">Информация о клиенте</h6>
+                    <p>
+                        @order.Client.LastNameClient @order.Client.FirstNameClient @order.Client.PatronymicClient <br />
+                        @order.Client.PhoneClient <br />
+                        @order.Client.EmailClient
+                    </p>
+
+                    <h6 class="card-subtitle mb-2">Информация о специалисте</h6>
+                    <p>
+                        @order.Specialist.LastNameSpecialist @order.Specialist.FirstNameSpecialist @order.Specialist.PatronymicSpecialist <br />
+                        @order.Specialist.PhoneNumberSpecialist
+                    </p>
+
+                    <h6 class="card-subtitle mb-2">Услуга</h6>
+                    <p>
+                        @order.Service.NameService <br />
+                        Цена: @order.Service.PriceService <br />
+                        Время выполнения: @order.Service.ExecutionTimeService
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <!-- Кнопка редактирования -->
+                    <a href="@Url.Action("Details", "Order", new { id = order.IdOrder })" class="btn btn-outline-primary btn-sm me-2">Подробнее</a>
+                    <!-- Кнопка удаления -->
+                    <form action="@Url.Action("Delete", "Order", new { id = order.IdOrder })" method="post" onsubmit="return confirm('Вы уверены, что хотите удалить этот заказ?');" class="d-inline">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,27 @@
+﻿@model ASPnetCoreMVC.Models.UserViewModel
+
+<h2 class="text-center my-4">Введите данные для нового пользователя</h2>
+
+<form asp-action="Create" method="post" class="p-4 rounded shadow-lg bg-light">
+    <div class="form-group mb-3">
+        <label for="LoginUser" class="form-label">Логин</label>
+        <input type="text" class="form-control" id="LoginUser" name="LoginUser" required placeholder="Введите логин" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="PasswordUser" class="form-label">Пароль</label>
+        <input type="password" class="form-control" id="PasswordUser" name="PasswordUser" required placeholder="Введите пароль" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="IdRole" class="form-label">Роль</label>
+        <select class="form-control" id="IdRole" name="IdRole">
+            @foreach (var role in ViewBag.Roles as SelectList)
+            {
+                <option value="@role.Value">@role.Text</option>
+            }
+        </select>
+    </div>
+    <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-success">Создать</button>
+        <a href="@Url.Action("Index", "User")" class="btn btn-outline-secondary">Отмена</a>
+    </div>
+</form>

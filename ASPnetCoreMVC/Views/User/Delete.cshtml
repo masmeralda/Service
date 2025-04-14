@@ -1,0 +1,11 @@
+﻿@model ASPnetCoreMVC.Models.UserViewModel
+
+<h2>Удалить пользователя</h2>
+
+<h3>Вы уверены, что хотите удалить пользователя @Model.LoginUser?</h3>
+
+<form method="post" action="@Url.Action("Delete", "User", new { id = Model.IdUser })" onsubmit="return confirm('Вы уверены, что хотите удалить этого пользователя?');">
+    @Html.AntiForgeryToken() <!-- Защита от CSRF атак -->
+    <button type="submit" class="btn btn-danger">Удалить</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Отмена</a>
+</form>

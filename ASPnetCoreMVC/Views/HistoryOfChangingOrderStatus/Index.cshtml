@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ASPnetCoreMVC.Models.HistoryOfChangingOrderStatusViewModel>
+
+<h2 class="text-center mb-4">История изменений статусов заказов</h2>
+
+<a href="@Url.Action("Index", "Dashboard")" class="btn btn-outline-danger btn-sm">Вернуться в панель управления</a>
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>ID</th>
+                <th>Статус</th>
+                <th>Изменено</th>
+                <th>ID заказа</th>
+                <th>ID специалиста</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.IdHistory</td>
+                    <td>@item.StatusHistory</td>
+                    <td>@item.ChangedAt?.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@item.IdOrder</td>
+                    <td>@item.IdSpecialist</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<style>
+    /* Настройка таблицы */
+    table {
+        margin-top: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        vertical-align: middle;
+        text-align: left;
+        padding: 15px;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #fafdff;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #fafdff;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    /* Кнопка вернуться */
+    .btn-outline-danger {
+        padding: 5px 10px;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+</style>

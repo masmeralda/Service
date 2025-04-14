@@ -1,0 +1,103 @@
+﻿@model IEnumerable<ASPnetCoreMVC.Models.UserViewModel>
+
+<h2 class="text-center mb-4">Пользователи</h2>
+
+<a href="@Url.Action("Index", "Dashboard")" class="btn btn-outline-danger btn-sm">Вернуться в панель управления</a>
+
+<a href="@Url.Action("Create", "User")" class="btn btn-outline-danger btn-sm">Создать пользователя</a>
+
+
+
+<style>
+
+    /* Настройка таблицы */
+    table {
+        margin-top: 20px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th, td {
+        vertical-align: middle;
+        text-align: left;
+        padding: 15px;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    .table-striped tbody tr:nth-child(odd) {
+        background-color: #fafdff;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #fafdff;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    /* Кнопка удалить */
+    .btn-outline-danger {
+        padding: 5px 10px;
+    }
+
+    /* Стиль для ссылки, чтобы она охватывала всю строку */
+    .d-block {
+        display: block;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .col {
+        flex: 1;
+    }
+
+    .text-end {
+        text-align: right;
+    }
+</style>
+
+
+<div class="table-responsive">
+    <table class="table table-hover table-striped">
+        <thead class="table-light">
+            <tr>
+                <th>Логин</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td colspan="3">
+                        <a href="@Url.Action("Edit", "User", new { id = user.IdUser })" class="d-block text-decoration-none">
+                            <div class="row py-2">
+                                <div class="col">
+                                    <span>@user.LoginUser</span>
+                                </div>
+                                <div class="col">
+                                    <span>@user.RoleName</span>
+                                </div>
+                                <div class="col text-end">
+                                    <form action="@Url.Action("Delete", "User", new { id = user.IdUser })" method="post" onsubmit="return confirm('Вы уверены, что хотите удалить этого пользователя?');">
+                                        @Html.AntiForgeryToken() <!-- Защита от CSRF атак -->
+                                        <button type="submit" class="btn btn-outline-danger btn-sm">Удалить</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,29 @@
+﻿@model ASPnetCoreMVC.Models.OrderViewModel
+
+@{
+    ViewData["Title"] = "Редактирование статуса заказа";
+}
+
+<h2 class="text-center my-4">@ViewData["Title"]</h2>
+
+<!-- Обернем форму в container-sm для ограничения ширины -->
+<form asp-action="Engineer_Edit" method="post" class="p-4 rounded shadow-lg bg-light container-sm">
+    <input type="hidden" asp-for="IdOrder" />
+
+    <div class="form-group mb-3">
+        <label asp-for="StatusOrder" class="form-label">Статус заказа</label>
+        <select asp-for="StatusOrder" class="form-control">
+            <option value="Принят инженером">Принят инженером</option>
+            <option value="Завершен">Завершен</option>
+            <option value="Отменен">Отменен</option>
+        </select>
+        <span asp-validation-for="StatusOrder" class="text-danger"></span>
+    </div>
+
+    <div class="d-flex justify-content-between">
+        <!-- Кнопка для смены статуса -->
+        <button type="submit" class="btn btn-primary">Сменить статус</button>
+        <!-- Кнопка "Назад" -->
+        <button onclick="window.history.back();" type="button" class="btn btn-secondary">Назад</button>
+    </div>
+</form>

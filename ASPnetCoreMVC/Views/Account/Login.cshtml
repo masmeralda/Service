@@ -1,0 +1,65 @@
+﻿@model ASPnetCoreMVC.Models.UserViewModel
+
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm p-4">
+                <h2 class="text-center">@ViewData["Title"]</h2>
+
+                <form method="post">
+                    <div class="form-group mb-3">
+                        <label for="LoginUser" class="form-label">Логин</label>
+                        <input type="text" id="LoginUser" name="LoginUser" class="form-control" value="@Model.LoginUser" required />
+                        <!-- Вывод ошибок для конкретного поля -->
+                        <span asp-validation-for="LoginUser" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="PasswordUser" class="form-label">Пароль</label>
+                        <input type="password" id="PasswordUser" name="PasswordUser" class="form-control" required />
+                        <!-- Вывод ошибок для конкретного поля -->
+                        <span asp-validation-for="PasswordUser" class="text-danger"></span>
+                    </div>
+
+                    <!-- Вывод общих ошибок -->
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                    <button type="submit" class="btn btn-dark w-100 mt-3 custom-button">Войти</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-button {
+        background-color: #5c92ae;
+        border: none;
+        transition: background-color 0.3s, transform 0.3s ease-in-out;
+    }
+
+        .custom-button:hover {
+            background-color: #5c92ae;
+            transform: scale(1.05);
+        }
+
+        .custom-button:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(104, 126, 162, 0.5);
+        }
+
+
+    /* Стили для вывода ошибок */
+    .validation-summary-errors ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .validation-summary-errors li::before {
+        content: "* ";
+        color: red;
+    }
+</style>

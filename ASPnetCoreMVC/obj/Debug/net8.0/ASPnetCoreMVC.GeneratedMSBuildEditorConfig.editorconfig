@@ -1,0 +1,153 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ASPnetCoreMVC
+build_property.RootNamespace = ASPnetCoreMVC
+build_property.ProjectDir = C:\Users\Honor\Documents\3 курс\6 семестр\Малышев\ЛР3\Курсовая Сервисный центр база\ASPnetCoreMVC\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Honor\Documents\3 курс\6 семестр\Малышев\ЛР3\Курсовая Сервисный центр база\ASPnetCoreMVC
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Client/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Client/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Client/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Client/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Client/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Dashboard/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEFkbWluRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Dashboard/EngineerDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEVuZ2luZWVyRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Dashboard/OperatorDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXE9wZXJhdG9yRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/HistoryOfChangingOrderStatus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGlzdG9yeU9mQ2hhbmdpbmdPcmRlclN0YXR1c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Engineer_Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRW5naW5lZXJfRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Engineer_Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcRW5naW5lZXJfSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Order/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Specialist/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbGlzdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Specialist/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3BlY2lhbGlzdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Technic/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Technic/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Technic/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Technic/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVjaG5pY1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Honor/Documents/3 курс/6 семестр/Малышев/ЛР3/Курсовая Сервисный центр база/ASPnetCoreMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-s1qvmcasqz
